@@ -1211,3 +1211,215 @@ footer {
         font-size: 18px;
     }
 }
+
+/* === Solution Areas Section === */
+.solution-areas {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
+.solution-area {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+.solution-area-content-row {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.solution-area-content-row.solution-area-reverse {
+    grid-template-columns: 1.5fr 1fr;
+}
+
+.solution-area-image-left,
+.solution-area-image-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.solution-area-image-left img,
+.solution-area-image-right img {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+}
+
+.solution-area-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.solution-area-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.solution-area-header h3 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--purple-700);
+}
+
+.solution-area-description {
+    margin: 0 0 16px;
+    color: #505575;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.solution-details-content {
+    padding: 0;
+}
+
+/* Know More Button */
+.know-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: var(--purple-600);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.know-more-btn:hover {
+    background: var(--purple-700);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
+}
+
+.know-more-btn:active {
+    transform: translateY(0);
+}
+
+.know-more-icon {
+    transition: transform 0.3s ease;
+}
+
+/* Solution Modal Overlay */
+.solution-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(13, 10, 30, 0.85);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 40px 20px;
+    animation: fadeIn 0.2s ease;
+}
+
+.solution-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Solution Modal Content */
+.solution-modal-content {
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 100%;
+    padding: 40px;
+    position: relative;
+    animation: slideUp 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1020px) {
+    .solution-areas {
+        gap: 40px;
+    }
+
+    .solution-area {
+        padding: 0;
+    }
+
+    .solution-area-content-row,
+    .solution-area-content-row.solution-area-reverse {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .solution-area-image-left,
+    .solution-area-image-right {
+        order: -1;
+    }
+
+    .solution-area-header h3 {
+        font-size: 22px;
+    }
+
+    .solution-area-description {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 640px) {
+    .solution-areas {
+        gap: 32px;
+    }
+
+    .solution-area {
+        padding: 0;
+    }
+
+    .solution-area-content-row,
+    .solution-area-content-row.solution-area-reverse {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .solution-area-header {
+        gap: 12px;
+    }
+
+    .solution-area-header h3 {
+        font-size: 20px;
+    }
+
+    .solution-area-description {
+        font-size: 14px;
+    }
+
+    /* Solution Modal Responsive */
+    .solution-modal {
+        padding: 20px 16px;
+    }
+
+    .solution-modal-content {
+        padding: 32px 24px;
+        max-height: 85vh;
+    }
+
+    .solution-modal-content h3 {
+        font-size: 24px !important;
+    }
+}
