@@ -1020,9 +1020,28 @@ footer {
     margin: 16px 0 0;
     padding-top: 12px;
     border-top: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.testimonial-author strong {
+.testimonial-author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--gray-200);
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.testimonial-author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+}
+
+.testimonial-author-info strong {
     color: #333a66;
     display: block;
     margin-bottom: 2px;
