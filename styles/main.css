@@ -863,6 +863,218 @@ footer {
     }
 }
 
+/* === Product Rows Section === */
+.product-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    margin-top: 48px;
+}
+
+.product-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.product-row-reverse {
+    direction: rtl;
+}
+
+.product-row-reverse > * {
+    direction: ltr;
+}
+
+.product-row-image {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    aspect-ratio: 16 / 10;
+}
+
+.product-row-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+}
+
+.product-row-content {
+    padding: 16px 0;
+}
+
+.product-row-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 16px;
+}
+
+.product-row-content p {
+    font-size: 1.05rem;
+    color: #505575;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.product-row-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--purple-700);
+    transition: gap 0.2s ease;
+}
+
+.product-row-cta::after {
+    content: "→";
+    transition: transform 0.2s ease;
+}
+
+.product-row-clickable {
+    cursor: pointer;
+}
+
+.product-row-clickable:hover .product-row-cta::after {
+    transform: translateX(4px);
+}
+
+.product-row-clickable:hover .product-row-image {
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 900px) {
+    .product-rows {
+        gap: 48px;
+    }
+
+    .product-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .product-row-reverse {
+        direction: ltr;
+    }
+
+    .product-row-content h3 {
+        font-size: 1.35rem;
+    }
+
+    .product-row-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .product-rows {
+        gap: 40px;
+    }
+
+    .product-row-content {
+        padding: 8px 0;
+    }
+}
+
+/* === Modal Overlay === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: var(--radius-xl);
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 40px;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #666;
+    line-height: 1;
+    padding: 0;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-content h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 8px;
+}
+
+.modal-subtitle {
+    font-style: italic;
+    color: var(--purple-700);
+    margin: 0 0 32px;
+}
+
+.modal-content .solution-demos {
+    gap: 32px;
+}
+
+.modal-content .demo-item {
+    margin-top: 0;
+}
+
+.modal-content .demo-media img {
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 24px;
+        width: 95%;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5rem;
+        padding-right: 40px;
+    }
+}
+
 /* === Solution Demos Section === */
 .solution-demos {
     display: flex;
