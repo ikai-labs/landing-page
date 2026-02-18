@@ -328,7 +328,7 @@
                     </div>
 
                     <!-- Solutions Examples -->
-                    <h3 class="solutions-heading">Solutions we deliver</h3>
+                    <h3 class="solutions-heading">Examples from our portfolio</h3>
 
                     <div class="product-rows">
                         <div
@@ -352,11 +352,11 @@
                             </div>
                         </div>
 
-                        <div class="product-row product-row-reverse">
+                        <div class="product-row product-row-reverse product-row-clickable" onclick="openKnowledgeModal()">
                             <div class="product-row-image">
                                 <img
                                     src="assets/our-solutions/retrieval.png"
-                                    alt="IKAI Knowledge Search interface"
+                                    alt="IKAI Knowledge Retrieval interface showing search results"
                                 />
                             </div>
                             <div class="product-row-content">
@@ -364,21 +364,29 @@
                                 <p>
                                     We create intelligent search systems that surface your firm's collective knowledge—past proposals, credentials, and internal materials—exactly when you need them.
                                 </p>
+                                <span class="product-row-cta">See how it works</span>
                             </div>
                         </div>
 
-                        <div class="product-row">
-                            <div class="product-row-image">
+                        <div class="product-row product-row-clickable" onclick="openAssistantModal()">
+                            <div class="product-row-image product-row-image-composite">
                                 <img
                                     src="assets/our-solutions/task-manager.png"
-                                    alt="AI Executive Assistant interface"
+                                    alt="AI Executive Assistant task manager interface"
+                                    class="composite-main"
+                                />
+                                <img
+                                    src="assets/our-solutions/task-summary.PNG"
+                                    alt="AI Executive Assistant mobile view"
+                                    class="composite-overlay"
                                 />
                             </div>
                             <div class="product-row-content">
                                 <h3>AI Executive Assistants</h3>
                                 <p>
-                                    We develop AI assistants tailored to your workflows—from research synthesis to meeting preparation—so your team can focus on high-value advisory work.
+                                    We develop AI assistants tailored to your workflows—from task prioritization to meeting preparation—so your team can focus on high-value advisory work.
                                 </p>
+                                <span class="product-row-cta">See how it works</span>
                             </div>
                         </div>
                     </div>
@@ -1390,7 +1398,104 @@
             </div>
         </div>
 
+        <!-- Knowledge Retrieval Modal -->
+        <div id="knowledge-modal" class="modal-overlay">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeKnowledgeModal()">
+                    &times;
+                </button>
+                <h2>How Knowledge Retrieval Works</h2>
+                <p class="modal-subtitle">
+                    Unlock your firm's collective intelligence
+                </p>
+
+                <div class="solution-demos">
+                    <div class="demo-item">
+                        <div class="demo-media">
+                            <img
+                                src="assets/our-solutions/Slides-search.png"
+                                alt="Knowledge search interface"
+                            />
+                        </div>
+                        <div class="demo-content">
+                            <span class="badge">1</span>
+                            <h3>Intelligent Search Interface</h3>
+                            <p>
+                                Search across your entire knowledge base using natural language. The system understands context and intent—not just keywords—to surface the most relevant content from past proposals, presentations, and internal materials.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="demo-item">
+                        <div class="demo-content">
+                            <span class="badge">2</span>
+                            <h3>Smart Content Discovery</h3>
+                            <p>
+                                The AI analyzes your query against thousands of documents, identifying slides, sections, and materials that match your specific needs. Filter by project type, client industry, or content category to narrow results.
+                            </p>
+                        </div>
+                        <div class="demo-media">
+                            <img
+                                src="assets/our-solutions/knowledge-retrieval.png"
+                                alt="Content discovery results"
+                            />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Executive Assistants Modal -->
+        <div id="assistant-modal" class="modal-overlay">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeAssistantModal()">
+                    &times;
+                </button>
+                <h2>How AI Executive Assistants Work</h2>
+                <p class="modal-subtitle">
+                    Your intelligent partner for strategic work
+                </p>
+
+                <div class="solution-demos">
+                    <div class="demo-item">
+                        <div class="demo-media demo-media-phone">
+                            <img
+                                src="assets/our-solutions/task-summary.PNG"
+                                alt="Task list overview"
+                            />
+                        </div>
+                        <div class="demo-content">
+                            <span class="badge">1</span>
+                            <h3>Intelligent Task Management</h3>
+                            <p>
+                                Your AI assistant maintains a comprehensive view of all your tasks, priorities, and deadlines. It understands context, tracks dependencies, and keeps everything organized—accessible anytime via chat interface.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="demo-item">
+                        <div class="demo-content">
+                            <span class="badge">2</span>
+                            <h3>Smart Prioritization</h3>
+                            <p>
+                                Ask "What should I focus on?" and get intelligent recommendations based on deadlines, importance, and your available time. The assistant considers your full workload to suggest the optimal path forward.
+                            </p>
+                        </div>
+                        <div class="demo-media demo-media-phone">
+                            <img
+                                src="assets/our-solutions/agentic-to-do-list.PNG"
+                                alt="AI prioritization conversation"
+                            />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
         <script>
+            // Proposals Modal
             function openProposalsModal() {
                 const modal = document.getElementById("proposals-modal");
                 modal.classList.add("active");
@@ -1403,19 +1508,49 @@
                 document.body.style.overflow = "";
             }
 
-            // Close modal on overlay click
-            document
-                .getElementById("proposals-modal")
-                .addEventListener("click", function (e) {
+            // Knowledge Retrieval Modal
+            function openKnowledgeModal() {
+                const modal = document.getElementById("knowledge-modal");
+                modal.classList.add("active");
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeKnowledgeModal() {
+                const modal = document.getElementById("knowledge-modal");
+                modal.classList.remove("active");
+                document.body.style.overflow = "";
+            }
+
+            // AI Assistant Modal
+            function openAssistantModal() {
+                const modal = document.getElementById("assistant-modal");
+                modal.classList.add("active");
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeAssistantModal() {
+                const modal = document.getElementById("assistant-modal");
+                modal.classList.remove("active");
+                document.body.style.overflow = "";
+            }
+
+            // Close modals on overlay click
+            ["proposals-modal", "knowledge-modal", "assistant-modal"].forEach(function(id) {
+                document.getElementById(id).addEventListener("click", function (e) {
                     if (e.target === this) {
-                        closeProposalsModal();
+                        this.classList.remove("active");
+                        document.body.style.overflow = "";
                     }
                 });
+            });
 
-            // Close modal on Escape key
+            // Close any active modal on Escape key
             document.addEventListener("keydown", function (e) {
                 if (e.key === "Escape") {
-                    closeProposalsModal();
+                    document.querySelectorAll(".modal-overlay.active").forEach(function(modal) {
+                        modal.classList.remove("active");
+                        document.body.style.overflow = "";
+                    });
                 }
             });
         </script>

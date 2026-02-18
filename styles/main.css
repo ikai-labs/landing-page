@@ -1273,6 +1273,102 @@ footer {
     display: block;
 }
 
+/* Phone screenshots in modals */
+.demo-media-phone {
+    display: flex;
+    justify-content: center;
+}
+
+.demo-media-phone img {
+    max-width: 280px;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Phone screenshots in product rows */
+.product-row-image-phone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f8f7ff 0%, #f0eeff 100%);
+}
+
+.product-row-image-phone img {
+    max-width: 300px;
+    width: auto;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    margin: 24px 0;
+}
+
+/* Composite image layout (main + overlay) */
+.product-row-image.product-row-image-composite {
+    position: relative;
+    overflow: visible;
+    aspect-ratio: auto;
+    padding: 20px;
+    padding-bottom: 50px;
+    padding-right: 50px;
+    box-shadow: none;
+    background: transparent;
+}
+
+.product-row-image.product-row-image-composite .composite-main {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.product-row-image.product-row-image-composite .composite-overlay {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.25),
+        0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 4px solid #fff;
+}
+
+@media (max-width: 900px) {
+    .product-row-image.product-row-image-composite {
+        padding: 16px;
+        padding-bottom: 40px;
+        padding-right: 40px;
+    }
+
+    .product-row-image-composite .composite-overlay {
+        width: 150px;
+        bottom: 16px;
+        right: 16px;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .product-row-image.product-row-image-composite {
+        padding: 12px;
+        padding-bottom: 32px;
+        padding-right: 32px;
+    }
+
+    .product-row-image-composite .composite-overlay {
+        width: 120px;
+        bottom: 12px;
+        right: 12px;
+        border-radius: 14px;
+        border-width: 3px;
+    }
+}
+
 .demo-content {
     display: flex;
     flex-direction: column;
@@ -1348,6 +1444,17 @@ footer {
     .demo-media img[src*="Initial-assessment.png"] {
         max-width: 85%;
         width: 85%;
+    }
+
+    /* Phone screenshots stay centered and sized appropriately on mobile */
+    .demo-media-phone img {
+        max-width: 220px;
+        width: auto;
+    }
+
+    .product-row-image-phone img {
+        max-width: 240px;
+        max-height: 320px;
     }
 
     .demo-content {
