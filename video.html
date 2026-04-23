@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>IKAI — Introduction</title>
+        <meta name="robots" content="noindex, nofollow" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="assets/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="assets/favicon-16x16.png"
+        />
+        <link rel="stylesheet" href="styles/root.css" />
+        <style>
+            body {
+                min-height: 100vh;
+                background:
+                    radial-gradient(
+                        900px 500px at 85% -10%,
+                        rgba(124, 77, 255, 0.18),
+                        transparent 60%
+                    ),
+                    radial-gradient(
+                        700px 420px at 0% 110%,
+                        rgba(106, 41, 192, 0.14),
+                        transparent 60%
+                    ),
+                    linear-gradient(180deg, #0f0828 0%, #1a0e3a 100%);
+                color: #fff;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .page-header {
+                padding: 28px 0 0;
+            }
+
+            .page-header .container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .brand {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .brand img {
+                height: 30px;
+                width: auto;
+            }
+
+            main {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 48px 0 72px;
+            }
+
+            .video-wrap {
+                width: min(960px, 92vw);
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .video-heading {
+                margin: 0 0 10px;
+                font-size: clamp(1.6rem, 3.2vw, 2.25rem);
+                font-weight: 800;
+                letter-spacing: -0.01em;
+            }
+
+            .video-sub {
+                margin: 0 0 28px;
+                color: rgba(255, 255, 255, 0.72);
+                font-size: 1rem;
+            }
+
+            .video-frame {
+                position: relative;
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                border-radius: var(--radius-xl);
+                overflow: hidden;
+                background: #0d0a1c;
+                box-shadow: var(--shadow-soft);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .video-poster {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+                padding: 0;
+                cursor: pointer;
+                background:
+                    linear-gradient(
+                        135deg,
+                        rgba(124, 77, 255, 0.35) 0%,
+                        rgba(42, 11, 90, 0.65) 100%
+                    ),
+                    radial-gradient(
+                        600px 340px at 30% 30%,
+                        rgba(169, 146, 255, 0.45),
+                        transparent 60%
+                    ),
+                    #120a2a;
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition:
+                    transform 0.3s ease,
+                    filter 0.3s ease;
+            }
+
+            .video-poster.has-thumb {
+                background-size: cover;
+                background-position: center;
+            }
+
+            .video-poster::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    180deg,
+                    rgba(15, 8, 40, 0.1) 0%,
+                    rgba(15, 8, 40, 0.45) 100%
+                );
+                transition: opacity 0.3s ease;
+            }
+
+            .video-poster:hover {
+                filter: brightness(1.05);
+            }
+
+            .play-button {
+                position: relative;
+                z-index: 2;
+                width: clamp(72px, 10vw, 104px);
+                height: clamp(72px, 10vw, 104px);
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.96);
+                box-shadow:
+                    0 10px 40px rgba(18, 8, 44, 0.45),
+                    0 0 0 0 rgba(255, 255, 255, 0.35);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition:
+                    transform 0.18s ease,
+                    box-shadow 0.25s ease;
+            }
+
+            .video-poster:hover .play-button {
+                transform: scale(1.06);
+                box-shadow:
+                    0 14px 50px rgba(18, 8, 44, 0.55),
+                    0 0 0 10px rgba(255, 255, 255, 0.08);
+            }
+
+            .play-button svg {
+                width: 38%;
+                height: 38%;
+                margin-left: 6%;
+                fill: var(--purple-800);
+            }
+
+            .video-frame iframe {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+
+            .page-footer {
+                padding: 28px 0 36px;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.55);
+                font-size: 0.85rem;
+            }
+
+            @media (max-width: 640px) {
+                main {
+                    padding: 24px 0 48px;
+                }
+                .video-heading {
+                    margin-bottom: 8px;
+                }
+                .video-sub {
+                    margin-bottom: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="page-header">
+            <div class="container">
+                <a class="brand" href="/" aria-label="IKAI home">
+                    <img src="assets/white-name.svg" alt="IKAI" />
+                </a>
+            </div>
+        </header>
+
+        <main>
+            <div class="video-wrap">
+                <h1 class="video-heading">Welcome to IKAI</h1>
+                <p class="video-sub">A short introduction to what we do.</p>
+
+                <div class="video-frame" id="videoFrame">
+                    <button
+                        type="button"
+                        class="video-poster"
+                        id="videoPoster"
+                        aria-label="Play introduction video"
+                    >
+                        <span class="play-button" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="page-footer">
+            <div class="container">© IKAI</div>
+        </footer>
+
+        <script>
+            // Paste your YouTube video ID below (the part after "v=" in the URL,
+            // e.g. for https://www.youtube.com/watch?v=dQw4w9WgXcQ the ID is "dQw4w9WgXcQ").
+            const YOUTUBE_VIDEO_ID = "NpemN_wPfqg";
+
+            const poster = document.getElementById("videoPoster");
+            const frame = document.getElementById("videoFrame");
+
+            // Use YouTube's thumbnail as the poster background if an ID is set.
+            if (YOUTUBE_VIDEO_ID && YOUTUBE_VIDEO_ID !== "YOUR_VIDEO_ID_HERE") {
+                const thumb = new Image();
+                thumb.onload = () => {
+                    poster.style.backgroundImage = `url(${thumb.src})`;
+                    poster.classList.add("has-thumb");
+                };
+                thumb.src = `https://i.ytimg.com/vi/${YOUTUBE_VIDEO_ID}/maxresdefault.jpg`;
+            }
+
+            poster.addEventListener("click", () => {
+                if (
+                    !YOUTUBE_VIDEO_ID ||
+                    YOUTUBE_VIDEO_ID === "YOUR_VIDEO_ID_HERE"
+                ) {
+                    alert("Video not configured yet.");
+                    return;
+                }
+                const iframe = document.createElement("iframe");
+                const params = new URLSearchParams({
+                    autoplay: "1",
+                    rel: "0",
+                    modestbranding: "1",
+                    playsinline: "1",
+                });
+                iframe.src = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?${params}`;
+                iframe.title = "IKAI introduction video";
+                iframe.allow =
+                    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+                iframe.allowFullscreen = true;
+                poster.replaceWith(iframe);
+            });
+        </script>
+    </body>
+</html>
